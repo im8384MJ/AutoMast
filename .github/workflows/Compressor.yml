@@ -29,7 +29,7 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone https://Keqing84:${{ secrets.GH_TOKEN }}@github.com/Keqing84/HM1.git mast
+           git clone https://Keqing84:${{ secrets.GH_TOKEN }}@github.com/Keqing84/HM-1.git mast
        - name: Running Mast Bot 
          timeout-minutes: 320
          continue-on-error: true
