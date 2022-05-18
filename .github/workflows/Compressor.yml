@@ -1,4 +1,4 @@
-name: PrivateEncoderV2.0 Workflows 
+name: Mast Bot 
 
 on:
     push:
@@ -29,12 +29,12 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone -b main https://Keqing84:${{ secrets.GH_TOKEN }}@github.com/Keqing84/HM1.git mast
+           git clone https://Keqing84:${{ secrets.GH_TOKEN }}@github.com/Keqing84/HM1.git mast
        - name: Running Mast Bot 
-         timeout-minutes: 300
+         timeout-minutes: 320
          continue-on-error: true
          run: |
-           cd mast || exit 1
+           cd mast || exit 0
            docker build -t compressor . && docker run compressor
            
        - name: Loop workflow
