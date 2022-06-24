@@ -11,7 +11,6 @@ jobs:
     steps:
        - name: Checkout
          uses: actions/checkout@main
-       - uses: rokibhasansagar/slimhub_actions@main
 
        - uses: styfle/cancel-workflow-action@0.9.0
          name: "Cancel duplicate workflow runs"
@@ -30,13 +29,14 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone https://Keqing84:${{ secrets.GH_TOKEN }}@github.com/Keqing84/HM-1.git mast
+           git clone https://Keqing84:${{ secrets.GH_TOKEN }}@github.com/Keqing84/Anitopy-Rename-Bot.git mast
        - name: Running Mast Bot 
          timeout-minutes: 320
          continue-on-error: true
          run: |
            cd mast || exit 0
-           docker build -t compressor . && docker run compressor
+           pip3 install -r requirements.txt
+           python3 main.py
            
        - name: Loop workflow
          continue-on-error: true
